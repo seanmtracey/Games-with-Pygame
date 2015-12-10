@@ -12,7 +12,7 @@ timeTick = 0
 
 pygame.init()
 pygame.font.init()
-surface = pygame.display.set_mode((windowWidth, windowHeight), pygame.FULLSCREEN)
+surface = pygame.display.set_mode((windowWidth, windowHeight), pygame.FULLSCREEN|pygame.HWSURFACE|pygame.DOUBLEBUF)
 
 pygame.display.set_caption('Alien\'s Are Gonna Kill Me!')
 textFont = pygame.font.SysFont("monospace", 50)
@@ -178,7 +178,7 @@ def quitGame():
 
 # 'main' loop
 while True:
-	
+  GAME_TIME.Clock().tick(30)
   timeTick = GAME_TIME.get_ticks()
   mousePosition = pygame.mouse.get_pos()
   mouseStates = pygame.mouse.get_pressed()
@@ -194,7 +194,7 @@ while True:
     if mouseStates[0] is 1:
 
       if mousePosition[0] > 445 and mousePosition[0] < 580 and mousePosition[1] > 450 and mousePosition[1] < 510:
-
+        pygame.mouse.set_visible(False)
         gameStarted = True
 
     elif mouseStates[0] is 0 and mouseDown is True:
