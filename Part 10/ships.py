@@ -91,7 +91,7 @@ class Enemy(Player):
   soundEffect = 'sounds/enemy_laser.wav'
   bulletImage = "assets/them_pellet.png"
   bulletSpeed = 10
-  speed = 2
+  speed = 4
   shields = 0
 
   def move(self):
