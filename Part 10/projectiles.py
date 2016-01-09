@@ -16,7 +16,7 @@ class Bullet():
     self.surface.blit(self.image, (self.x, self.y))
 
   def move(self):
-  	self.y += self.speed
+    self.y += self.speed
 
   def checkForHit(self, thingToCheckAgainst):
     if self.x > thingToCheckAgainst.x and self.x < thingToCheckAgainst.x + thingToCheckAgainst.width:

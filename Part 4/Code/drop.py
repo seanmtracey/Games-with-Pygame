@@ -176,7 +176,7 @@ while True:
       quitGame()
 
   if gameStarted is True:
-  	# Play game
+    # Play game
     timer = GAME_TIME.get_ticks() - gameBeganAt
 
     movePlatforms()

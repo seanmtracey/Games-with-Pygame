@@ -102,64 +102,64 @@ def handleMouseDown():
 
 
 def quitGame():
-  pygame.quit()
-  sys.exit()
+	pygame.quit()
+	sys.exit()
 
 # 'main' loop
 while True:
 
-  mousePosition = pygame.mouse.get_pos()
-  surface.blit(background, (0,0))
+	mousePosition = pygame.mouse.get_pos()
+	surface.blit(background, (0,0))
 
-  # Handle user and system events 
-  for event in GAME_EVENTS.get():
+	# Handle user and system events 
+	for event in GAME_EVENTS.get():
 
-    if event.type == pygame.KEYDOWN:
+		if event.type == pygame.KEYDOWN:
 
-      if event.key == pygame.K_ESCAPE:
-        quitGame()
+			if event.key == pygame.K_ESCAPE:
+				quitGame()
 
-    if event.type == pygame.KEYUP:
+		if event.type == pygame.KEYUP:
 
-    	if event.key == pygame.K_r:
-    		celestialBodies = []
-    	if event.key == pygame.K_a:
-    		if drawAttractions is True:
-    			drawAttractions = False
-    		elif drawAttractions is False:
-    			drawAttractions = True
+			if event.key == pygame.K_r:
+				celestialBodies = []
+			if event.key == pygame.K_a:
+				if drawAttractions is True:
+					drawAttractions = False
+				elif drawAttractions is False:
+					drawAttractions = True
 
-    if event.type == pygame.MOUSEBUTTONDOWN:
-      mouseDown = True
-      handleMouseDown()
+		if event.type == pygame.MOUSEBUTTONDOWN:
+			mouseDown = True
+			handleMouseDown()
 
-    if event.type == pygame.MOUSEBUTTONUP:
-    	mouseDown = False
+		if event.type == pygame.MOUSEBUTTONUP:
+			mouseDown = False
 
-    if event.type == GAME_GLOBALS.QUIT:
-      quitGame()
+		if event.type == GAME_GLOBALS.QUIT:
+			quitGame()
 
-  # Draw the UI; Update the movement of the planets; Draw the planets in their new positions.
-  drawUI()
-  calculateMovement()
-  drawPlanets()
+	# Draw the UI; Update the movement of the planets; Draw the planets in their new positions.
+	drawUI()
+	calculateMovement()
+	drawPlanets()
 
-  # If our user has created a new planet, draw it where the mouse is
-  if currentBody is not None:
-  	drawCurrentBody()
+	# If our user has created a new planet, draw it where the mouse is
+	if currentBody is not None:
+		drawCurrentBody()
 
-  	# If our user has released the mouse, add the new planet to the celestialBodies list and let gravity do its thing
-  	if mouseDown is False:
-	  	currentBody["velocity"][0] = (mousePosition[0] - previousMousePosition[0]) / 4
-	  	currentBody["velocity"][1] = (mousePosition[1] - previousMousePosition[1]) / 4
-	  	celestialBodies.append(currentBody)
-	  	currentBody = None
+		# If our user has released the mouse, add the new planet to the celestialBodies list and let gravity do its thing
+		if mouseDown is False:
+			currentBody["velocity"][0] = (mousePosition[0] - previousMousePosition[0]) / 4
+			currentBody["velocity"][1] = (mousePosition[1] - previousMousePosition[1]) / 4
+			celestialBodies.append(currentBody)
+			currentBody = None
 
 	# Draw the logo for the first four seconds of the program
-  if GAME_TIME.get_ticks() < 4000:
-    surface.blit(logo, (108,77))
+	if GAME_TIME.get_ticks() < 4000:
+		surface.blit(logo, (108,77))
 
-  # Store the previous mouse coordinates to create a vector when we release a new planet
-  previousMousePosition = mousePosition
+	# Store the previous mouse coordinates to create a vector when we release a new planet
+	previousMousePosition = mousePosition
 
-  pygame.display.update()
+	pygame.display.update()
