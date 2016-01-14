@@ -89,7 +89,7 @@ def quitGame():
 
 # 'main' loop
 while True:
-	
+
   timeTick = GAME_TIME.get_ticks()
   mousePosition = pygame.mouse.get_pos()
   mouseStates = pygame.mouse.get_pressed()
@@ -112,8 +112,8 @@ while True:
       mouseDown = False
 
   elif gameStarted is True and gameOver is True:
-		surface.blit(startScreen, (0, 0))
-		timeLasted = (gameFinishedTime - gameStartedTime) / 1000
+    surface.blit(startScreen, (0, 0))
+    timeLasted = (gameFinishedTime - gameStartedTime) / 1000
 
   # Handle user and system events 
   for event in GAME_EVENTS.get():

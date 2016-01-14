@@ -16,7 +16,7 @@ class Bullet():
     self.surface.blit(self.image, (self.x, self.y))
 
   def move(self):
-  	self.y += self.speed
+    self.y += self.speed
 
   def __init__(self, x, y, pygame, surface, speed, image):
     self.x = x
