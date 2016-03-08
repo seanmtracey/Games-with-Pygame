@@ -4,6 +4,7 @@ import pygame.event as GAME_EVENTS
 
 # Pygame Variables
 pygame.init()
+clock = pygame.time.Clock()
 
 windowWidth = 800
 windowHeight = 800
@@ -109,5 +110,6 @@ while True:
 			quitGame()
 
 	move()
-		
+
+	clock.tick(60)
 	pygame.display.update()

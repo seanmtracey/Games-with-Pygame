@@ -4,6 +4,7 @@ import pygame.event as GAME_EVENTS
 
 # Pygame Variables
 pygame.init()
+clock = pygame.time.Clock()
 
 windowWidth = 800
 windowHeight = 800
@@ -87,6 +88,7 @@ while True:
 	checkGravity()
 	drawSquare()
 
+	clock.tick(60)
 	pygame.display.update()
 
 	for event in GAME_EVENTS.get():

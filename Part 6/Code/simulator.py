@@ -8,6 +8,7 @@ windowWidth = 1024
 windowHeight = 768
 
 pygame.init()
+clock = pygame.time.Clock()
 surface = pygame.display.set_mode((windowWidth, windowHeight), pygame.FULLSCREEN)
 
 pygame.display.set_caption('Solar System Simulator')
@@ -162,4 +163,5 @@ while True:
 	# Store the previous mouse coordinates to create a vector when we release a new planet
 	previousMousePosition = mousePosition
 
+	clock.tick(60)
 	pygame.display.update()

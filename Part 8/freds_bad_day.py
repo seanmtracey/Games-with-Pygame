@@ -9,6 +9,7 @@ windowHeight = 768
 
 pygame.init()
 pygame.font.init()
+clock = pygame.time.Clock()
 surface = pygame.display.set_mode((windowWidth, windowHeight), pygame.FULLSCREEN)
 
 pygame.display.set_caption('Fred\'s Bad Day')
@@ -154,6 +155,7 @@ while True:
 		if event.type == GAME_GLOBALS.QUIT:
 			quitGame()
 
+	clock.tick(60)
 	pygame.display.update()
 
 	if GAME_TIME.get_ticks() - lastBarrel > barrelInterval and gameStarted is True:
