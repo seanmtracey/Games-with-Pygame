@@ -12,6 +12,7 @@ timeTick = 0
 
 pygame.init()
 pygame.font.init()
+clock = pygame.time.Clock()
 surface = pygame.display.set_mode((windowWidth, windowHeight), pygame.FULLSCREEN|pygame.HWSURFACE|pygame.DOUBLEBUF)
 
 pygame.display.set_caption('Alien\'s Are Gonna Kill Me!')
@@ -224,5 +225,6 @@ while True:
 
   if event.type == GAME_GLOBALS.QUIT:
     quitGame()
-
+  
+  clock.tick(60)
   pygame.display.update()

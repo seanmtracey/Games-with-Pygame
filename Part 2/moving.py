@@ -3,6 +3,7 @@ import pygame.locals as GAME_GLOBALS
 import pygame.event as GAME_EVENTS
 
 pygame.init()
+clock = pygame.time.Clock()
 
 windowWidth = 640
 windowHeight = 480
@@ -57,4 +58,5 @@ while True:
 
 			sys.exit()
 
+	clock.tick(60)
 	pygame.display.update()

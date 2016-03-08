@@ -7,6 +7,7 @@ windowWidth = 1024
 windowHeight = 768
 
 pygame.init()
+clock = pygame.time.Clock()
 surface = pygame.display.set_mode((windowWidth, windowHeight))
 
 pygame.display.set_caption('Collisions')
@@ -199,4 +200,5 @@ while True:
 	# Store the previous mouse coordinates to create a vector when we release a new anObject
 	previousMousePosition = mousePosition
 
+	clock.tick(60)
 	pygame.display.update()

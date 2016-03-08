@@ -4,6 +4,7 @@ import pygame.event as GAME_EVENTS
 import pygame.time as GAME_TIME
 
 pygame.init()
+clock = pygame.time.Clock()
 
 title_image = pygame.image.load("assets/title.jpg")
 game_over_image = pygame.image.load("assets/game_over.jpg")
@@ -195,4 +196,5 @@ while True:
   if GAME_TIME.get_ticks() - lastPlatform > platformDelay:
     createPlatform()
 
+  clock.tick(60)
   pygame.display.update()
