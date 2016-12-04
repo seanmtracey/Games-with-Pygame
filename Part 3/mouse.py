@@ -31,9 +31,9 @@ def checkBounds():
 
 	if mousePressed == True:
 		# Is our cursor over our square?
-		if mousePosition[0] > squareX and mousePosition[0] < squareX + squareSize:
+		if squareX < mousePosition[0] < squareX + squareSize:
 
-			if mousePosition[1] > squareY and mousePosition[1] < squareY + squareSize:
+			if squareY < mousePosition[1] < squareY + squareSize:
 
 				draggingSquare = True
 				pygame.mouse.set_visible(0)
