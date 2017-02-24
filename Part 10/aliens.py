@@ -179,7 +179,6 @@ def quitGame():
 
 # 'main' loop
 while True:
-  GAME_TIME.Clock().tick(30)
   timeTick = GAME_TIME.get_ticks()
   mousePosition = pygame.mouse.get_pos()
   mouseStates = pygame.mouse.get_pressed()
