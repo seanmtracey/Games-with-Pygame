@@ -13,7 +13,7 @@ surface = pygame.display.set_mode((windowWidth, windowHeight))
 pygame.display.set_caption('Pygame Keyboard!')
 
 # Square Variables
-playerSize = 20;
+playerSize = 20
 playerX = (windowWidth / 2) - (playerSize / 2)
 playerY = windowHeight - playerSize
 playerVX = 1.0
