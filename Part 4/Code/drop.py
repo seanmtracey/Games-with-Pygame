@@ -49,10 +49,10 @@ def movePlayer():
   leftOfPlayerOnPlatform = True
   rightOfPlayerOnPlatform = True
 
-  if surface.get_at((player["x"], player["y"] + player["height"])) == (0,0,0,255):
+  if surface.get_at(( int(player["x"]), int(player["y"]) + player["height"])) == (0,0,0,255):
     leftOfPlayerOnPlatform = False
 
-  if surface.get_at((player["x"] + player["width"], player["y"] + player["height"])) == (0,0,0,255):
+  if surface.get_at(( int(player["x"]) + player["width"], int(player["y"]) + player["height"])) == (0,0,0,255):
     rightOfPlayerOnPlatform = False
 
   if leftOfPlayerOnPlatform is False and rightOfPlayerOnPlatform is False and (player["y"] + player["height"]) + player["vy"] < windowHeight:
@@ -70,7 +70,7 @@ def movePlayer():
 
     while foundPlatformTop is False:
 
-      if surface.get_at((player["x"], (player["y"] + player["height"]) - yOffset )) == (0,0,0,255):
+      if surface.get_at(( int(player["x"]), ( int(player["y"]) + player["height"]) - yOffset )) == (0,0,0,255):
         player["y"] -= yOffset
         foundPlatformTop = True
       elif (player["y"] + player["height"]) - yOffset > 0:
