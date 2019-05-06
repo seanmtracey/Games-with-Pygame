@@ -66,7 +66,6 @@ def updateGame():
 
       if shipIsDestroyed is True:
         gameOver = True
-        print "\n\n\nYou Died\n\n\n"
         quitGame()
 
     else:
