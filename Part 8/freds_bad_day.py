@@ -110,7 +110,7 @@ while True:
 
 	elif gameStarted is True and gameOver is True:
 		surface.blit(endScreen, (0, 0))
-		timeLasted = (gameFinishedTime - gameStartedTime) / 1000
+		timeLasted = int((gameFinishedTime - gameStartedTime) / 1000)
 	
 		if timeLasted < 10:
 			timeLasted = "0" + str(timeLasted)
