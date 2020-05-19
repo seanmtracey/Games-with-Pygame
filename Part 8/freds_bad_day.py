@@ -145,12 +145,12 @@ while True:
 
 					gameOver = False
 
-	if event.type == pygame.KEYUP:
+		if event.type == pygame.KEYUP:
 
-		if event.key == pygame.K_LEFT:
-			goLeft = False
-		if event.key == pygame.K_RIGHT:
-			goRight = False
+			if event.key == pygame.K_LEFT:
+				goLeft = False
+			if event.key == pygame.K_RIGHT:
+				goRight = False
 
 		if event.type == GAME_GLOBALS.QUIT:
 			quitGame()
