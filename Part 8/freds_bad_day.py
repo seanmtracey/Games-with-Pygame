@@ -73,7 +73,7 @@ while True:
 
 			if barrel.isBroken is False:
 
-				hasCollided = barrel.checkForCollision(Fred);
+				hasCollided = barrel.checkForCollision(Fred)
 				
 				if hasCollided is True:
 					barrel.split(timeTick)
