@@ -46,7 +46,7 @@ while True:
 	blueSquareX += blueSquareVX
 	blueSquareY += blueSquareVY
 
-	blueSquareVX -= 0.2
+	blueSquareVX += 0.1
 	blueSquareVY += 0.1
 	'''
 
