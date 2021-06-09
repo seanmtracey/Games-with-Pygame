@@ -62,7 +62,7 @@ def launchWave():
     thisWave = thisLevel[currentWave]
 
     for idx, enemyAtThisPosition in enumerate(thisWave):
-      if enemyAtThisPosition is 1:
+      if enemyAtThisPosition == 1:
         enemyShips.append(ships.Enemy(((windowWidth / len(thisWave)) * idx), -60, pygame, surface, 1))
 
   elif currentLevel + 1 < len(gameLevels.level) :
@@ -80,10 +80,10 @@ def updateGame():
 
   global mouseDown, gameOver, gameWon, leftOverBullets
 
-  if mouseStates[0] is 1 and mouseDown is False:
+  if mouseStates[0] == 1 and mouseDown == False:
     ship.fire()
     mouseDown = True
-  elif mouseStates[0] is 0 and mouseDown is True:
+  elif mouseStates[0] == 0 and mouseDown == True:
     mouseDown = False
 
   ship.setPosition(mousePosition)
@@ -98,10 +98,10 @@ def updateGame():
       shipIsDestroyed = enemy.checkForHit(ship)
       enemyIsDestroyed = ship.checkForHit(enemy)
 
-      if enemyIsDestroyed is True:
+      if enemyIsDestroyed == True:
         enemiesToRemove.append(idx)
 
-      if shipIsDestroyed is True:
+      if shipIsDestroyed == True:
         gameOver = True
         gameWon = False
         return
@@ -124,7 +124,7 @@ def updateGame():
       aBullet.move()
       hitShip = aBullet.checkForHit(ship)
 
-      if hitShip is True or aBullet.y > windowHeight:
+      if hitShip == True or aBullet.y > windowHeight:
         del leftOverBullets[idx - oC]
         oC += 1
 
@@ -183,28 +183,28 @@ while True:
   mousePosition = pygame.mouse.get_pos()
   mouseStates = pygame.mouse.get_pressed()
 
-  if gameStarted is True and gameOver is False:
+  if gameStarted == True and gameOver == False:
 
     updateGame()
     drawGame()
 
-  elif gameStarted is False and gameOver is False:
+  elif gameStarted == False and gameOver == False:
     surface.blit(startScreen, (0, 0))
 
-    if mouseStates[0] is 1:
+    if mouseStates[0] == 1:
 
       if mousePosition[0] > 445 and mousePosition[0] < 580 and mousePosition[1] > 450 and mousePosition[1] < 510:
         pygame.mouse.set_visible(False)
         gameStarted = True
 
-    elif mouseStates[0] is 0 and mouseDown is True:
+    elif mouseStates[0] == 0 and mouseDown == True:
       mouseDown = False
 
-  elif gameStarted is True and gameOver is True and gameWon is False:
+  elif gameStarted == True and gameOver == True and gameWon == False:
     surface.blit(loseScreen, (0, 0))
     timeLasted = (gameFinishedTime - gameStartedTime) / 1000
   
-  if gameStarted is True and gameWon is True and len(enemyShips) is 0:
+  if gameStarted == True and gameWon == True and len(enemyShips) == 0:
     surface.blit(winScreen, (0, 0))
 
   # Handle user and system events 
@@ -216,10 +216,10 @@ while True:
         quitGame()
 
       if event.key == pygame.K_SPACE:
-        if gameStarted is True and gameOver is True or gameStarted is True and gameWon is True:
+        if gameStarted == True and gameOver == True or gameStarted == True and gameWon == True:
           restartGame()
 
-  if timeTick - lastSpawn > gameLevels.level[currentLevel]["interval"] * 1000 and gameStarted is True and gameOver is False:
+  if timeTick - lastSpawn > gameLevels.level[currentLevel]["interval"] * 1000 and gameStarted == True and gameOver == False:
     launchWave()
 
   if event.type == GAME_GLOBALS.QUIT:
