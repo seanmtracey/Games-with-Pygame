@@ -80,10 +80,10 @@ def updateGame():
 
   global mouseDown, gameOver, gameWon, leftOverBullets
 
-  if mouseStates[0] is 1 and mouseDown is False:
+  if mouseStates[0] == 1 and mouseDown == False:
     ship.fire()
     mouseDown = True
-  elif mouseStates[0] is 0 and mouseDown is True:
+  elif mouseStates[0] == 0 and mouseDown == True:
     mouseDown = False
 
   ship.setPosition(mousePosition)
