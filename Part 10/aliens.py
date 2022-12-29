@@ -191,7 +191,7 @@ while True:
   elif gameStarted is False and gameOver is False:
     surface.blit(startScreen, (0, 0))
 
-    if mouseStates[0] is 1:
+    if mouseStates[0] == 1:
 
       if mousePosition[0] > 445 and mousePosition[0] < 580 and mousePosition[1] > 450 and mousePosition[1] < 510:
         pygame.mouse.set_visible(False)
