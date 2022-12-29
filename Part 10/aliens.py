@@ -62,7 +62,7 @@ def launchWave():
     thisWave = thisLevel[currentWave]
 
     for idx, enemyAtThisPosition in enumerate(thisWave):
-      if enemyAtThisPosition is 1:
+      if enemyAtThisPosition == 1:
         enemyShips.append(ships.Enemy(((windowWidth / len(thisWave)) * idx), -60, pygame, surface, 1))
 
   elif currentLevel + 1 < len(gameLevels.level) :
@@ -197,14 +197,14 @@ while True:
         pygame.mouse.set_visible(False)
         gameStarted = True
 
-    elif mouseStates[0] is 0 and mouseDown is True:
+    elif mouseStates[0] == 0 and mouseDown == True:
       mouseDown = False
 
   elif gameStarted is True and gameOver is True and gameWon is False:
     surface.blit(loseScreen, (0, 0))
     timeLasted = (gameFinishedTime - gameStartedTime) / 1000
   
-  if gameStarted is True and gameWon is True and len(enemyShips) is 0:
+  if gameStarted == True and gameWon == True and len(enemyShips) == 0:
     surface.blit(winScreen, (0, 0))
 
   # Handle user and system events 
