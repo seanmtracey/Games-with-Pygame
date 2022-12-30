@@ -40,10 +40,13 @@ class Player():
     a.set_volume(0.2)
     a.play()
 
-  def drawBullets(self):
-    for b in self.bullets:
-      b.move()
-      b.draw()
+  def drawBullets(self, windowHeight):
+    for bullet in self.bullets:
+      bullet.draw(windowHeight)
+
+  def moveBullets(self, windowHeight):
+    for bullet in self.bullets:
+      bullet.move(windowHeight)
 
   def registerHit(self):
     if self.shields == 0:
