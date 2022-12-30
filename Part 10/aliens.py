@@ -87,6 +87,8 @@ def updateGame():
     mouseDown = False
 
   ship.setPosition(mousePosition)
+  for bullet in ship.bullets:
+    bullet.move(windowHeight)
 
   enemiesToRemove = []
 
@@ -94,6 +96,7 @@ def updateGame():
 
     if enemy.y < windowHeight:
       enemy.move()
+      enemy.moveBullets(windowHeight)
       enemy.tryToFire()
       shipIsDestroyed = enemy.checkForHit(ship)
       enemyIsDestroyed = ship.checkForHit(enemy)
@@ -105,6 +108,7 @@ def updateGame():
         gameOver = True
         gameWon = False
         return
+
 
     else:
       enemiesToRemove.append(idx)
@@ -121,7 +125,7 @@ def updateGame():
   oC = 0
 
   for idx, aBullet in enumerate(leftOverBullets):
-      aBullet.move()
+      aBullet.move(windowHeight)
       hitShip = aBullet.checkForHit(ship)
 
       if hitShip is True or aBullet.y > windowHeight:
@@ -132,12 +136,13 @@ def drawGame():
 
     global leftOverBullets, nextLevelTS, timeTick, gameWon
 
+    surface.fill((0,0,0))
     surface.blit(background, (0, 0))
     ship.draw()
-    ship.drawBullets()
+    ship.drawBullets(windowHeight)
 
     for aBullet in leftOverBullets:
-      aBullet.draw()
+      aBullet.draw(windowHeight)
 
     healthColor = [(62, 180, 76), (180, 62, 62)]
     whichColor = 0
@@ -146,8 +151,9 @@ def drawGame():
       whichColor = 1
 
     for enemy in enemyShips:
-      enemy.draw()
-      enemy.drawBullets()
+      if enemy.y + enemy.height <= windowHeight:
+        enemy.draw()
+        enemy.drawBullets(windowHeight)
 
     pygame.draw.rect(surface, healthColor[whichColor], (0, windowHeight - 5, (windowWidth / ship.maxHealth) * ship.health, 5))
     pygame.draw.rect(surface, (62, 145, 180), (0, windowHeight - 10, (windowWidth / ship.maxShields) * ship.shields, 5))

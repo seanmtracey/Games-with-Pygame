@@ -12,11 +12,13 @@ class Bullet():
   def loadImages(self):
     self.image = self.pygame.image.load(self.image)
 
-  def draw(self):
-    self.surface.blit(self.image, (self.x, self.y))
+  def draw(self, windowHeight):
+    if self.y + self.height + self.speed <= windowHeight:
+      self.surface.blit(self.image, (self.x, self.y))
 
-  def move(self):
-    self.y += self.speed
+  def move(self, windowHeight):
+    if self.y + self.height + self.speed <= windowHeight:
+      self.y += self.speed
 
   def checkForHit(self, thingToCheckAgainst):
     if self.x > thingToCheckAgainst.x and self.x < thingToCheckAgainst.x + thingToCheckAgainst.width:
